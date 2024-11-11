@@ -25,6 +25,8 @@ class FaceEmbedding(BaseModel):
     vector: npt.NDArray[np.float32] = Field(..., description="Face embedding vector")
     confidence: float = Field(default=1.0, description="Confidence score of face embedding")
 
+    class Config:
+        arbitrary_types_allowed = True
 
 class DetectedFace(BaseModel):
     bbox: BoundingBox
@@ -32,9 +34,15 @@ class DetectedFace(BaseModel):
     landmarks: Optional[dict] = None
     image: Optional[npt.NDArray] = None
 
+    class Config:
+        arbitrary_types_allowed = True
+
 
 class MatchResult(BaseModel):
     matched: bool
     confidence: float
     matched_id: Optional[str] = None
     distance: Optional[float] = None
+
+    class Config:
+        arbitrary_types_allowed = True
