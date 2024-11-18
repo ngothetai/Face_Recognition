@@ -157,7 +157,7 @@ if __name__ == "__main__":
     detector = HaarCascadeDetector()
 
     # Read test image
-    img = cv2.imread("./data/test_images/test1.jpg")
+    img = cv2.imread("./data/test_images/tienduy.jpg")
     if img is None:
         print("Image not found")
         exit(0)

@@ -46,3 +46,10 @@ class MatchResult(BaseModel):
 
     class Config:
         arbitrary_types_allowed = True
+
+class EmbeddingVectorStore(BaseModel):
+    vectors: List[FaceEmbedding] = Field(..., description="List of face embeddings")
+    ids: List[str] = Field(..., description="List of corresponding face IDs")
+
+    class Config:
+        arbitrary_types_allowed = True

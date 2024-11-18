@@ -116,3 +116,34 @@ class BaseFaceMatcher(ABC):
             MatchResult: Match result
         """
         pass
+
+
+class BaseEmbeddingVectorStore(ABC):
+    """Base interface for embedding vector store"""
+
+    @abstractmethod
+    def __init__(self, **kwargs):
+        """Initialize embedding vector store with configuration"""
+        self.name: str = "base_vector_store"
+
+    @abstractmethod
+    def add_vectors(self, embeddings: List[FaceEmbedding], ids: List[str]) -> None:
+        """
+        Add embeddings to the vector store
+        :args
+            embeddings: List[FaceEmbedding]: List of face embeddings
+            ids: List[str]: List of corresponding face IDs
+        """
+        pass
+
+    @abstractmethod
+    def search_vectors(self, query_embedding: FaceEmbedding, top_k: int) -> List[MatchResult]:
+        """
+        Search for the top_k most similar embeddings in the vector store
+        :args
+            query_embedding: FaceEmbedding: Query face embedding
+            top_k: int: Number of top similar embeddings to return
+        :returns
+            List[MatchResult]: List of match results
+        """
+        pass

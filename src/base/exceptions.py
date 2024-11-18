@@ -16,3 +16,8 @@ class EmbeddingError(FaceProcessingError):
 class MatchingError(FaceProcessingError):
     """Raised when face matching fails"""
     pass
+
+
+class VectorStoreError(FaceProcessingError):
+    """Raised when vector store operation fails"""
+    pass
